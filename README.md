@@ -1,4 +1,4 @@
-### Bazel and Protobuf
+## Bazel and Protobuf
 
 Bazel skylark rules for building protocol buffers with +/- gRPC
 support.  This repo shows how to
@@ -7,7 +7,7 @@ Bazel to build protocol buffers in the Google-style way.
 
 
 
-### Development in Docker Containers
+## Development in Docker Containers
 
 This example also shows how to do development with Bazel in a Docker
 container:
@@ -34,10 +34,11 @@ container:
    docker run --rm -it -v $PWD:/learn-bazel $HOME/.cache/bazel bazel
    ```
 
-   Please be aware that we mount Bazel's cache directory to the Docker
-   container.  This is important since many Bazel-managed projects
-   depends on external repos/projects, and we don't want having to
-   re-fetch and re-build them everytime we run the Bazel container.
+   Please be aware that we **mount Bazel's cache directory to the
+   Docker container**.  This is important since many Bazel-managed
+   projects depends on external repos/projects, and we don't want
+   having to re-fetch and re-build them everytime we run the Bazel
+   container.
 
 1. Edit files using Emacs/Vim/etc on the host and run bazel in the container:
 
