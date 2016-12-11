@@ -11,6 +11,5 @@ cc_binary(
         ":hello-time",
         "//lib:hello-greet",
     ],
-    # linkopts = ["-static", "-static-libgcc", "-static-libstdc++"],
+    linkopts = ["-static", "-static-libgcc", "-static-libstdc++"],
 )
-

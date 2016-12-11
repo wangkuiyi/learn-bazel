@@ -1,8 +1,13 @@
+### Bazel and Protobuf
+
 Bazel skylark rules for building protocol buffers with +/- gRPC
 support.  This repo shows how to
 use [rules_protobuf](https://github.com/pubref/rules_protobuf) with
 Bazel to build protocol buffers in the Google-style way.
 
+
+
+### Development in Docker Containers
 
 This example also shows how to do development with Bazel in a Docker
 container:
@@ -40,3 +45,23 @@ container:
    ```
    $(bazel info bazel-bin)/main/hello-world
    ```
+
+
+
+## Fully Statically Linked Binaries
+
+This example also shows how to generated fully-staticlaly-linked binaries by setting
+
+```
+linkopts = ["-static", "-static-libgcc", "-static-libstdc++"],
+```
+
+in `cc_binary` rules.
+
+
+After building, we can check the generated binary is fully statically linked:
+
+```
+# ldd $(bazel info bazel-bin)/main/hello-world
+    not a dynamic executable
+```
