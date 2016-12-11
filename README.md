@@ -29,9 +29,15 @@ container:
 1. Run this Docker image as a container and mount learn-bazel into it:
 
    ```
+   mkdir $HOME/.cache/bazel # make sure Bazel's cache directory is there.
    cd .. # the learn-bazel directory
-   docker run --rm -it -v $PWD:/learn-bazel bazel
+   docker run --rm -it -v $PWD:/learn-bazel $HOME/.cache/bazel bazel
    ```
+
+   Please be aware that we mount Bazel's cache directory to the Docker
+   container.  This is important since many Bazel-managed projects
+   depends on external repos/projects, and we don't want having to
+   re-fetch and re-build them everytime we run the Bazel container.
 
 1. Edit files using Emacs/Vim/etc on the host and run bazel in the container:
 
